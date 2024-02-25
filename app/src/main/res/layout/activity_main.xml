@@ -6,6 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+    <com.google.android.material.button.MaterialButton
+        android:id="@+id/btnToNextLayout"
+        android:text="Test Live Camra"
+        android:textStyle="bold"
+        app:cornerRadius="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/text_tittle"
+        android:layout_marginBottom="15dp"
+        />
+
+
     <com.google.android.material.textview.MaterialTextView
         android:id="@+id/text_tittle"
         android:text="Test Camera Access"

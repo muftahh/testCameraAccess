@@ -6,7 +6,8 @@
     <uses-feature
         android:name="android.hardware.camera"
         android:required="false" />
-    <uses-permission android:name="android.permission.CAMERA"/>
+
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -19,6 +20,9 @@
         android:theme="@style/Theme.TestCameraAccess"
         tools:targetApi="31">
         <activity
+            android:name=".TestLiveCamera"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -27,19 +31,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        
+
         <provider
-            android:authorities="com.hacktivate8.testcameraaccess.fileProvider"
             android:name="androidx.core.content.FileProvider"
+            android:authorities="com.hacktivate8.testcameraaccess.fileProvider"
             android:exported="false"
             android:grantUriPermissions="true">
-
             <meta-data
                 android:name="android.support.FILE_PROVIDER_PATHS"
-                android:resource="@xml/file_path"/>
-
+                android:resource="@xml/file_path" />
         </provider>
-        
     </application>
 
 </manifest>

@@ -11,11 +11,14 @@ import androidx.core.content.FileProvider;
 
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Toast;
 
+import com.google.android.material.button.MaterialButton;
 import com.hacktivate8.testcameraaccess.databinding.ActivityMainBinding;
 
 import java.io.File;
@@ -26,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     ActivityMainBinding mainBinding;
     ActivityResultLauncher<Uri> takePictureLauncher;
     Uri imageUri;
+    MaterialButton btnNextTest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,11 +37,20 @@ public class MainActivity extends AppCompatActivity {
         mainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(mainBinding.getRoot());
 
+        btnNextTest = findViewById(R.id.btnToNextLayout);
         imageUri = createUri();
         registerPicturesLauncher();
 
         mainBinding.btnCamera.setOnClickListener( view -> {
             checkPermission();
+        });
+
+        btnNextTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, TestLiveCamera.class);
+                startActivity(intent);
+            }
         });
     }
 
