@@ -67,9 +67,9 @@ public class TestLiveCamera extends AppCompatActivity {
     };
 
     private void starCamera() {
-        // id 0 for front and id 1 for back
+        // id 1 for front and id 0 for back
         try {
-            stringCameraId = cameraManager.getCameraIdList()[1];
+            stringCameraId = cameraManager.getCameraIdList()[0];
             if (ActivityCompat.checkSelfPermission(this, android.Manifest.permission.CAMERA) != PackageManager.PERMISSION_GRANTED) {
                 // TODO: Consider calling
                 //    ActivityCompat#requestPermissions
